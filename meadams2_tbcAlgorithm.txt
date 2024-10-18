@@ -1,0 +1,56 @@
+Marianne Adams
+CS120 Turn Based Combat Blackbelt
+Defining Character Module
+
+This module will contain:
+1. A function to fight.
+2. Defining the Character Class.
+
+This module is closely based off of meadams2_tbc.py. 
+
+Define a new class Character:
+	Define new function called __init__(self):
+		self.name gets name
+		self.maxDamage gets maxDamage
+		self.hitChance gets hitChance
+		self.hitPoints gets hitPoints
+		self.armor gets armor
+	Property: characterName. Takes character name.
+
+	Property: hitPoints. Takes value. Integer with no max or min. Determines 	how much damage the character can sustain. Is possible to be negative or 0.
+	
+	hitPoint.Setter
+		Checks if value type is an integer. If not an integer, default is 		10
+
+	Property: hitChance. Takes value. Integer from 0-100. Determines the 	likelihood a hit will be successful. 
+
+	hitChance.setter
+		Uses testInt() to make sure value is within 0-100 and is an 			integer.
+
+	Property: maxDamage. Takes value. Positive integer. The largest amount of 	damage a single hit will sustain. 
+
+	maxDamage.setter
+		Uses testInt() to make sure value is an integer greater than or equal to 0. 
+
+	Property: armor. Takes value. Positive integer. The number of hits absorbed by character armor
+
+	armor.setter
+		Uses testInt() to make sure value is integer greater than or equal to 0. 
+	
+	Define printStats():
+		Takes no parameters
+		Prints character name, hitPoints, hitChance, maxDamage, and armor. Returns characterStats. 
+	
+	Define hit():
+		Takes self and enemy
+		Uses hitChance to determine if hit lands. Hit lands when random integer (1-100) is less than or equal to hitChance.
+		If hit lands, determine the hitDamage using random integer (0-maxDamage)
+		Else, hitDamage gets 0.
+		Subtract armor from hitDamage.
+		Subtract hitDamage from hitPoints
+		Return enemy.hitPoints
+Define fight()
+	Takes character1, character2
+	Orchestrates series of turns and runs until one character is defeated(ie. hitPoints is 0)
+
+	
